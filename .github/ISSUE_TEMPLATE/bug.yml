@@ -1,0 +1,43 @@
+name: Bug report
+description: Something is broken or behaves unexpectedly
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Clutch version
+      description: From the release you installed, e.g. v0.3.3-beta.1
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [Windows 11, Windows 10, Linux (please name the distro below), Other]
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: GPU and CPU
+      placeholder: e.g. RTX 3070, Ryzen 5 5600X
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: And what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Add a display capture source
+        2. Click Start Recording
+        3. ...
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots, recordings or logs
+      description: Drag files in here.

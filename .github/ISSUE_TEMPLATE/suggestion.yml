@@ -1,0 +1,15 @@
+name: Suggestion
+description: An idea, feature request or improvement
+labels: [suggestion]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would it help you?
+      description: What are you trying to do, and what gets in the way today?
