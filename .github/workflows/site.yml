@@ -1,0 +1,17 @@
+# Rebuilds clutch.destrosphere.com when a release is published or edited, so its download
+# buttons and changelog show the new version. Needs the Cloudflare Pages deploy hook URL in the
+# SITE_DEPLOY_HOOK secret; without it this does nothing.
+name: Update website
+on:
+  release:
+    types: [published, edited, deleted]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the site build
+        env:
+          HOOK: ${{ secrets.SITE_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "SITE_DEPLOY_HOOK isn't set; skipping"; exit 0; fi
+          curl -fsS -X POST "$HOOK"
