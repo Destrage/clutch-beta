@@ -18,7 +18,11 @@ jobs:
           if [ -z "$HOOK" ]; then echo "DISCORD_RELEASES_WEBHOOK isn't set; skipping"; exit 0; fi
           # Discord messages are capped at 2000 characters; long notes end with a pointer to the page.
           notes=$(printf '%s' "$BODY" | tr -d '\r')
-          if [ ${#notes} -gt 1600 ]; then notes="${notes:0:1600}..."; fi
+          if [ ${#notes} -gt 1600 ]; then
+            # Cut at the last paragraph break that fits, so no sentence ends halfway.
+            cut="${notes:0:1600}"
+            notes="${cut%$'\n\n'*}"
+          fi
           text=$(printf '**%s is out**\n\n%s\n\nDownload and full notes: %s\nDocs: https://clutch.destrosphere.com' \
             "$NAME" "$notes" "$URL")
           # flags 4 hides link previews so the post stays compact.
