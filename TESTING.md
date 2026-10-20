@@ -58,6 +58,19 @@ When a new beta comes out, install it over the old one.
 
 You should see: your scenes, settings and stream keys are all still there.
 
+**1.5 Performance profiles**
+1. Open Settings → **Performance**. Check that "This PC" names your graphics card, its
+   encoder, your processor cores and memory correctly.
+2. Click **Optimize for this PC**. Read the list of changes, then **Apply**.
+3. Play a game for 10+ minutes with clip mode on (and recording, if you like). Compare your game's
+   FPS with Clutch closed.
+4. Try **Gaming** and **Quality** too, and **Undo last profile change**.
+5. Change something by hand on the Recording page: Performance should now say Custom.
+
+You should see: a recommendation that makes sense for your PC, a change list that only lists
+real changes, and little to no FPS loss in Gaming or Balanced. If your game stutters while
+recording, a message should offer **Use a lighter profile**.
+
 ---
 
 ## 2. Building scenes
