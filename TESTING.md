@@ -71,6 +71,15 @@ You should see: a recommendation that makes sense for your PC, a change list tha
 real changes, and little to no FPS loss in Gaming or Balanced. If your game stutters while
 recording, a message should offer **Use a lighter profile**.
 
+**1.6 Updates** (from 0.3.5 beta 4 on)
+1. Open Settings → **Updates** and click **Check now**.
+2. When a newer beta comes out, leave Clutch running for a while (it checks every 6 hours), or
+   click Check now again.
+
+You should see: "You're up to date" for now. When a new version is out, it downloads by itself
+(the default) and **Restart to update** appears in the top bar; closing Clutch installs it. Try
+*Tell me when one is out* too, and tell us if anything about it surprises you.
+
 ---
 
 ## 2. Building scenes
@@ -112,6 +121,15 @@ Add filters to a source (color correction, LUT, chroma key / green screen, luma 
 blur, sharpen, image mask, custom shader), reorder and remove them.
 
 You should see: the effect live in the preview; removing the filter restores the original.
+
+**2.4b Interactive browser sources**
+1. Add a Browser source with a page that has buttons (a web page, or a local HTML file).
+2. In its settings, turn on **Interactive**.
+3. Click its buttons, scroll it and type in it, right in the preview. Press **Esc** when done.
+4. Hold **Alt** and drag it: it should move like any other source.
+
+You should see: clicks land exactly where you click, even if the source is scaled, cropped or
+rotated, and Clutch's own shortcuts work again after Esc.
 
 **2.5 Multiple canvases** (e.g. horizontal and vertical at once)
 1. Use the canvas tabs above the preview to add a vertical canvas (1080×1920).
@@ -220,6 +238,30 @@ Play, rename, favorite, trim, copy, show in folder and delete clips; filter by g
 Set a low storage limit (e.g. 1 GB) and keep clipping.
 
 You should see: the oldest automatic clips get deleted; favorites and your own clips stay.
+
+---
+
+## 5b. Music
+
+**5b.1 Background music**
+1. Add a **Music** source and pick a genre.
+2. Use play/pause, **Previous**, **Next** and **Repeat**.
+3. Click a track in the **Playlist** list. Play a few, then click one of the earlier ones.
+4. Switch genres a few times.
+
+You should see: music within a few seconds, the right genre after every switch (the old track
+stops right away), and the credit (title, artist, license) for the playing track.
+
+**5b.2 Credit on screen**
+Add a **Text** source with **Read text from file**, and pick the music-….txt file from the folder
+shown under the Music source's Skip button.
+
+You should see: "Now playing: …" on screen, changing with every track.
+
+**5b.3 Licenses**
+Turn **Safe for monetized streams** off and on.
+
+You should see: with it on, every credit says CC BY, CC BY-SA or CC0 (never NC).
 
 ---
 

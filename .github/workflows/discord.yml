@@ -1,0 +1,26 @@
+# Posts each newly published release to the #releases channel on Discord. Needs the channel's
+# webhook URL in the DISCORD_RELEASES_WEBHOOK secret; without it this does nothing.
+name: Announce on Discord
+on:
+  release:
+    types: [published]
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post to #releases
+        env:
+          HOOK: ${{ secrets.DISCORD_RELEASES_WEBHOOK }}
+          NAME: ${{ github.event.release.name }}
+          URL: ${{ github.event.release.html_url }}
+          BODY: ${{ github.event.release.body }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "DISCORD_RELEASES_WEBHOOK isn't set; skipping"; exit 0; fi
+          # Discord messages are capped at 2000 characters; long notes end with a pointer to the page.
+          notes=$(printf '%s' "$BODY" | tr -d '\r')
+          if [ ${#notes} -gt 1600 ]; then notes="${notes:0:1600}..."; fi
+          text=$(printf '**%s is out**\n\n%s\n\nDownload and full notes: %s\nDocs: https://clutch.destrosphere.com' \
+            "$NAME" "$notes" "$URL")
+          # flags 4 hides link previews so the post stays compact.
+          jq -n --arg c "$text" '{username: "Clutch", content: $c, flags: 4, allowed_mentions: {parse: []}}' |
+            curl -fsS -H 'Content-Type: application/json' -d @- "$HOOK"
