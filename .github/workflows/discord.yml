@@ -1,9 +1,18 @@
 # Posts each newly published release to the #releases channel on Discord. Needs the channel's
 # webhook URL in the DISCORD_RELEASES_WEBHOOK secret; without it this does nothing.
+# Run it by hand to repost a release, or to rewrite an earlier post by giving its message id.
 name: Announce on Discord
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag, for example v0.3.5-beta.4
+        required: true
+      message_id:
+        description: Discord message to rewrite instead of posting a new one (optional)
+        required: false
 jobs:
   announce:
     runs-on: ubuntu-latest
@@ -11,20 +20,29 @@ jobs:
       - name: Post to #releases
         env:
           HOOK: ${{ secrets.DISCORD_RELEASES_WEBHOOK }}
-          NAME: ${{ github.event.release.name }}
-          URL: ${{ github.event.release.html_url }}
-          BODY: ${{ github.event.release.body }}
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag || github.event.release.tag_name }}
+          MESSAGE: ${{ inputs.message_id }}
         run: |
           if [ -z "$HOOK" ]; then echo "DISCORD_RELEASES_WEBHOOK isn't set; skipping"; exit 0; fi
-          # Discord messages are capped at 2000 characters; long notes end with a pointer to the page.
-          notes=$(printf '%s' "$BODY" | tr -d '\r')
-          if [ ${#notes} -gt 1600 ]; then
-            # Cut at the last paragraph break that fits, so no sentence ends halfway.
-            cut="${notes:0:1600}"
+          release=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG")
+          name=$(jq -r .name <<<"$release")
+          url=$(jq -r .html_url <<<"$release")
+          notes=$(jq -r .body <<<"$release" | tr -d '\r')
+          head=$(printf '**%s is out**' "$name")
+          foot=$(printf 'Download and full notes: %s\nDocs: https://clutch.destrosphere.com' "$url")
+          # Discord messages are capped at 2000 characters. Long notes are cut at the last
+          # paragraph break that fits, so nothing ends halfway; the full notes are one click away.
+          room=$(( 1990 - ${#head} - ${#foot} - 4 ))
+          if [ ${#notes} -gt $room ]; then
+            cut="${notes:0:$room}"
             notes="${cut%$'\n\n'*}"
           fi
-          text=$(printf '**%s is out**\n\n%s\n\nDownload and full notes: %s\nDocs: https://clutch.destrosphere.com' \
-            "$NAME" "$notes" "$URL")
+          text=$(printf '%s\n\n%s\n\n%s' "$head" "$notes" "$foot")
           # flags 4 hides link previews so the post stays compact.
-          jq -n --arg c "$text" '{username: "Clutch", content: $c, flags: 4, allowed_mentions: {parse: []}}' |
-            curl -fsS -H 'Content-Type: application/json' -d @- "$HOOK"
+          body=$(jq -n --arg c "$text" '{username: "Clutch", content: $c, flags: 4, allowed_mentions: {parse: []}}')
+          if [ -n "$MESSAGE" ]; then
+            curl -fsS -X PATCH -H 'Content-Type: application/json' -d "$(jq 'del(.username)' <<<"$body")" "$HOOK/messages/$MESSAGE" >/dev/null
+          else
+            curl -fsS -H 'Content-Type: application/json' -d "$body" "$HOOK" >/dev/null
+          fi
