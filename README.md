@@ -6,7 +6,7 @@ The source code isn't here. This repo only holds test builds and your feedback.
 
 ## Install
 
-Grab the newest build from **[Releases](../../releases)**:
+Grab the newest build from **[Releases](../../releases)**, then follow the **[Testing guide](TESTING.md)**:
 
 - **Windows 10/11:** download `Clutch-<version>-x64.msi` and run it. Windows SmartScreen may warn because the build isn't signed yet: click *More info → Run anyway*.
 - **Linux (x86_64):** download `Clutch-<version>-x86_64.AppImage`, then `chmod +x Clutch-*.AppImage` and run it.
