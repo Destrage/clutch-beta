@@ -259,7 +259,7 @@ shown under the Music source's Skip button.
 You should see: "Now playing: …" on screen, changing with every track.
 
 **5b.3 Licenses**
-Turn **Safe for monetized streams** off and on.
+Turn **Commercial-use licenses only** off and on.
 
 You should see: with it on, every credit says CC BY, CC BY-SA or CC0 (never NC).
 
@@ -326,11 +326,25 @@ source's sound settings from its name, and go **Back to the live controls**.
 
 You should see: smooth transitions; sound from both scenes blends during the switch.
 
-**8.3 Chat**
-1. Open **Chat**, sign in inside each platform's tab.
-2. Send a message.
+**8.3 Chat in one place**
+1. In Settings → Stream, connect Twitch, YouTube and Kick on their destinations (Twitch and
+   YouTube again if you connected them before).
+2. Go live and open **Chat** (or look at the right of the Live deck).
+3. Have a friend write in each platform's chat.
+4. Reply with **Send to: All platforms**, then to just one platform.
+5. Scroll up while messages arrive, then use **New messages**.
+6. Open **Pages** → a platform, then **Back to chat**.
 
-You should see: one tab per platform you stream to; you chat as yourself.
+You should see: every platform's messages in one list with its badge; your replies appear on
+each platform as you; the list stays put while you read and jumps down on New messages; a
+platform that can't send says why.
+
+**8.3b Follows, subs and other events**
+1. Have a friend follow you (Twitch and Kick), or gift a sub, cheer, or send a Super Chat.
+2. Click the speaker button in the chat header, and repeat.
+
+You should see: a highlighted line like "ali followed" with the platform badge and a chime;
+no chime after turning it off (still off after restarting Clutch).
 
 **8.4 Viewer count**
 Connect your Twitch/YouTube account (Settings → Stream). While live, click the viewer count in
