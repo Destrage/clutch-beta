@@ -326,6 +326,19 @@ source's sound settings from its name, and go **Back to the live controls**.
 
 You should see: smooth transitions; sound from both scenes blends during the switch.
 
+**8.2b Stream key from your account**
+In Settings → Stream, on a connected destination, click **Get stream key** (YouTube, Twitch, Kick).
+
+You should see: the server and key filled in; Go Live works with them.
+
+**8.2c Is YouTube live?**
+1. In YouTube Studio, turn **auto-start** off for your stream, then Go Live in Clutch.
+2. Watch the YouTube line in the Live deck, and the message with **Start broadcast**.
+3. Try again with auto-start on.
+
+You should see: "Waiting for you to start the broadcast" then, after Start broadcast, "Live on
+YouTube"; with auto-start on, "YouTube is starting your broadcast" then live.
+
 **8.3 Chat in one place**
 1. In Settings → Stream, connect Twitch, YouTube and Kick on their destinations (Twitch and
    YouTube again if you connected them before).
