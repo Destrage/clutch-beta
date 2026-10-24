@@ -231,8 +231,24 @@ though you weren't recording or streaming. The hotkey should work while the game
 You should see: clips of your kills/wins/objectives saved by themselves; events close together
 merged into one clip (up to **Longest clip**). Spectating someone else must not create clips.
 
+**5.3b PUBG events**
+1. Turn on replays in PUBG's settings. In Clutch: Settings → Clips → Auto-clip → **Connect** PUBG.
+2. Record (or keep clip mode on) and play a Battle Royale match to the end.
+
+You should see: after the match, your kills, knocks, death and win as ticks in the recording's
+player, and clips of them when the replay buffer still held them.
+
 **5.4 Managing clips**
 Play, rename, favorite, trim, copy, show in folder and delete clips; filter by game.
+
+**5.4b Clip player**
+1. Double-click a clip (or a recording) in the Clips view.
+2. Try Space, Left/Right and M. Click a tick on the seek bar.
+3. Trim: set the start and end from the playback position.
+
+You should see: the clip plays inside Clutch, smooth and with sound in sync, on your monitoring
+device only (not in a running stream or recording). Clicking a tick jumps just before that
+moment; while trimming, the player loops the part you keep.
 
 **5.5 Storage limit**
 Set a low storage limit (e.g. 1 GB) and keep clipping.
@@ -356,8 +372,23 @@ platform that can't send says why.
 1. Have a friend follow you (Twitch and Kick), or gift a sub, cheer, or send a Super Chat.
 2. Click the speaker button in the chat header, and repeat.
 
-You should see: a highlighted line like "ali followed" with the platform badge and a chime;
-no chime after turning it off (still off after restarting Clutch).
+You should see: a highlighted line like "ali followed" with the platform badge and a sound for
+that kind of event; no sound after turning it off (still off after restarting Clutch).
+
+**8.3c Event sounds**
+Open Settings → **Audio**. Press play next to each kind, choose your own file for one, then
+clear it again.
+
+You should see: a different sound per kind, heard only by you; your file plays for its kind.
+
+**8.3d Alerts on stream**
+1. Add an **Alerts** source to your scene.
+2. In its settings, pick each kind under **Alert** and press **Test**.
+3. Press Test on several kinds quickly. Copy the source (Ctrl+C) into another scene (Ctrl+V).
+
+You should see: the alert with a sample name and its sound, one at a time, on a transparent
+background; its sound on the Alerts knob in the mixer; the same alerts in the other scene. With
+a friend following or subscribing while you're live, the alert shows their name.
 
 **8.4 Viewer count**
 Connect your Twitch/YouTube account (Settings → Stream). While live, click the viewer count in
@@ -389,6 +420,7 @@ recording/stream starting or stopping. Add a **Wait** step and a **Save clip** s
 3. Choose which canvas it shows in Settings → Virtual camera.
 
 You should see: your Clutch scene as your webcam in the call, smooth and not mirrored wrongly.
+Works on Windows 10 as well as Windows 11.
 
 Linux: needs `v4l2loopback` first (`sudo modprobe v4l2loopback card_label="Clutch" exclusive_caps=1`).
 
