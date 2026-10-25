@@ -172,6 +172,14 @@ You should see: the effect within a moment, with no crackling or noticeable dela
 **3.4 Audio filters**
 Add and remove noise suppression, noise gate, compressor, gain and limiter on your mic.
 
+**3.4b Strong noise suppression**
+1. On your mic's Noise suppression filter, set **Strength** to **Strong**.
+2. Talk while typing and clicking, then record a minute of it, or stream for 10+ minutes.
+3. Try **Amount** at 50%.
+
+You should see (and hear): typing and clicks mostly gone and your voice clear, with no gaps or
+crackling over a long session. At 50% some of the original sound comes back.
+
 **3.5 No double sound**
 1. Have a game or window capture with **Capture audio** on, plus Desktop audio.
 2. Play a media source with "Hear on my speakers" on.
@@ -203,6 +211,14 @@ You should see: one file per canvas, named after it.
 **4.4 Recordings in the Clips view**
 Play, rename, favorite, show in folder, copy, trim (**Save as new clip** and **Replace**) and
 delete a recording.
+
+**4.5 Lighter on your PC**
+1. Record (or stream) a game for 10+ minutes with an NVIDIA or AMD encoder.
+2. Keep Clutch's window in front for a while, then play with Clutch behind the game or on
+   another screen.
+
+You should see: no lost frames in the recording, a smooth preview while Clutch is in front, and
+Clutch's processor and graphics use in Task Manager at or below what the last version used.
 
 ---
 
@@ -238,6 +254,14 @@ merged into one clip (up to **Longest clip**). Spectating someone else must not 
 You should see: after the match, your kills, knocks, death and win as ticks in the recording's
 player, and clips of them when the replay buffer still held them.
 
+**5.3c Fortnite and Rocket League events**
+1. Turn on **Record Replays** in Fortnite, or **Auto Save Replays** in Rocket League. In Clutch:
+   Settings → Clips → Auto-clip → **Connect** the game.
+2. Record and play a match to the end.
+
+You should see: after the match, ticks in the recording's player for your eliminations, knocks,
+death and win (Fortnite) or your goals and win (Rocket League).
+
 **5.4 Managing clips**
 Play, rename, favorite, trim, copy, show in folder and delete clips; filter by game.
 
@@ -249,6 +273,11 @@ Play, rename, favorite, trim, copy, show in folder and delete clips; filter by g
 You should see: the clip plays inside Clutch, smooth and with sound in sync, on your monitoring
 device only (not in a running stream or recording). Clicking a tick jumps just before that
 moment; while trimming, the player loops the part you keep.
+
+**5.4c Clip from a marker**
+In a recording with ticks (5.3, 5.3b or 5.3c), click a tick, then **Save as new clip**.
+
+You should see: the trim set around that moment, and a new clip of it in the Clips view.
 
 **5.5 Storage limit**
 Set a low storage limit (e.g. 1 GB) and keep clipping.
@@ -347,6 +376,13 @@ In Settings → Stream, on a connected destination, click **Get stream key** (Yo
 
 You should see: the server and key filled in; Go Live works with them.
 
+**8.2d Sign in from another browser**
+1. Disconnect YouTube or Kick in Settings → Stream, then click **Copy link** instead of Connect.
+2. Paste the link into a browser that isn't your default one and sign in there.
+
+You should see: "Sign-in link copied", no browser opening by itself, and the account connected
+once you sign in. While a connect is waiting, Copy link next to Open page copies the same page.
+
 **8.2c Is YouTube live?**
 1. In YouTube Studio, turn **auto-start** off for your stream, then Go Live in Clutch.
 2. Watch the YouTube line in the Live deck, and the message with **Start broadcast**.
@@ -387,8 +423,17 @@ You should see: a different sound per kind, heard only by you; your file plays f
 3. Press Test on several kinds quickly. Copy the source (Ctrl+C) into another scene (Ctrl+V).
 
 You should see: the alert with a sample name and its sound, one at a time, on a transparent
-background; its sound on the Alerts knob in the mixer; the same alerts in the other scene. With
-a friend following or subscribing while you're live, the alert shows their name.
+background; each kind with its own animation and the text on its banner; its sound on the Alerts
+knob in the mixer; the same alerts in the other scene. With a friend following or subscribing
+while you're live, the alert shows their name.
+
+**8.3e Chat on stream**
+1. Add a **Chat overlay** source to your scene and go live (or have chat open).
+2. Have friends write on each platform; delete one message as a moderator.
+3. Change the style, lines and fade time in its settings.
+
+You should see: messages with emotes on the canvas, the last few shown as soon as the source is
+added, the deleted message gone from it, and setting changes applied right away.
 
 **8.4 Viewer count**
 Connect your Twitch/YouTube account (Settings → Stream). While live, click the viewer count in
@@ -433,7 +478,8 @@ Linux: needs `v4l2loopback` first (`sudo modprobe v4l2loopback card_label="Clutc
 
 You should see: live numbers and 5-minute graphs, and plain-language alerts (rendering lag,
 encoder overload, network trouble, high CPU/GPU, low disk, audio dropouts) with advice that
-makes sense. Alerts should go away once things calm down.
+makes sense. Alerts should go away once things calm down. The **Video thread** table shows how
+long each step of a frame takes.
 
 ---
 
