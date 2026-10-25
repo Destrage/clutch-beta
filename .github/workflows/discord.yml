@@ -31,12 +31,16 @@ jobs:
           notes=$(jq -r .body <<<"$release" | tr -d '\r')
           head=$(printf '**%s is out**' "$name")
           foot=$(printf 'Download and full notes: %s\nDocs: https://clutch.destrosphere.com' "$url")
-          # Discord messages are capped at 2000 characters. Long notes are cut at the last
-          # paragraph break that fits, so nothing ends halfway; the full notes are one click away.
+          # Discord messages are capped at 2000 characters. Long notes keep as many whole lines
+          # (bullets) as fit, drop a heading left with nothing under it, and point to the rest.
           room=$(( 1990 - ${#head} - ${#foot} - 4 ))
+          more=$'\n\n…and more in the full notes.'
           if [ ${#notes} -gt $room ]; then
-            cut="${notes:0:$room}"
-            notes="${cut%$'\n\n'*}"
+            notes=$(awk -v room=$(( room - ${#more} )) '
+              { if (n + length($0) + 1 > room) exit; out[++k] = $0; n += length($0) + 1 }
+              END { while (k > 0 && (out[k] == "" || out[k] ~ /:$/)) k--; for (i = 1; i <= k; i++) print out[i] }
+            ' <<<"$notes")
+            notes="$notes$more"
           fi
           text=$(printf '%s\n\n%s\n\n%s' "$head" "$notes" "$foot")
           # flags 4 hides link previews so the post stays compact.
