@@ -33,13 +33,17 @@ jobs:
           foot=$(printf 'Download and full notes: %s\nDocs: https://clutch.destrosphere.com' "$url")
           # Discord messages are capped at 2000 characters. Long notes keep as many whole lines
           # (bullets) as fit, drop a heading left with nothing under it, and point to the rest.
+          # The download lines (**Windows…, **Linux…) always stay, after the bullets.
           room=$(( 1990 - ${#head} - ${#foot} - 4 ))
           more=$'\n\n…and more in the full notes.'
           if [ ${#notes} -gt $room ]; then
-            notes=$(awk -v room=$(( room - ${#more} )) '
+            files=$(grep -E '^\*\*(Windows|Linux)' <<<"$notes" || true)
+            notes=$(awk -v room=$(( room - ${#more} - ${#files} - 2 )) '
+              /^\*\*(Windows|Linux)/ { exit }
               { if (n + length($0) + 1 > room) exit; out[++k] = $0; n += length($0) + 1 }
               END { while (k > 0 && (out[k] == "" || out[k] ~ /:$/)) k--; for (i = 1; i <= k; i++) print out[i] }
             ' <<<"$notes")
+            if [ -n "$files" ]; then notes=$(printf '%s\n\n%s' "$notes" "$files"); fi
             notes="$notes$more"
           fi
           text=$(printf '%s\n\n%s\n\n%s' "$head" "$notes" "$foot")
