@@ -53,6 +53,17 @@ should tell you in plain words instead of failing silently.
 You should see: a ready scene matching your choice, your screen or game in the preview, your
 webcam placed sensibly, and your mic in the sound controls with noise suppression on.
 
+**1.3b Choosing what the setup includes**
+1. In the first-run setup (or **New setup…**, see 2.6), pick **Streaming games**.
+2. Untick the webcam, then pick **Talking to camera** and back.
+3. Tick or untick chat, alerts and the "Starting soon" / "Be right back" scenes, then
+   **Get started**.
+
+You should see: the webcam stays unticked when you switch purpose, and Talking to camera then
+uses your screen. The new setup has exactly what was ticked: with the defaults, a chat overlay
+in the lower left, an Alerts source, and Starting soon and Be right back scenes with large text.
+Recording and Vertical video start with chat, alerts and break scenes unticked.
+
 **1.4 Upgrade**
 When a new beta comes out, install it over the old one.
 
@@ -116,6 +127,15 @@ ones) without stutter, and its settings apply right away.
    Reset (Ctrl+R).
 6. Reorder (Ctrl+] / Ctrl+[), group (Ctrl+G), hide/show and delete (Del) sources.
 
+**2.3b Source settings**
+1. Select a source and switch between the **Source**, **Layout**, **Look** and **Sound** tabs.
+2. Fold and unfold a panel by its header; close and reopen Clutch.
+3. Drag a slider (opacity, volume, a filter value), Shift-drag it, click it and type a value,
+   and use the arrow keys on it.
+
+You should see: only the tabs that apply to that source, the same tab and folded panels after
+reopening, and sliders that follow the pointer (finely with Shift) and take typed values.
+
 **2.4 Video filters**
 Add filters to a source (color correction, LUT, chroma key / green screen, luma key, crop/pad,
 blur, sharpen, image mask, custom shader), reorder and remove them.
@@ -137,6 +157,16 @@ rotated, and Clutch's own shortcuts work again after Esc.
 3. Rename and remove a canvas, then undo.
 
 You should see: the same webcam works on both canvases at once without "device busy" errors.
+
+**2.5b Canvas menu and copying scenes**
+1. With two canvases, click the arrow on a canvas tab: **Duplicate as…** 1440p, then
+   **Stream and record this canvas** on the copy.
+2. Hover a scene card and **Copy to canvas** onto the vertical canvas.
+3. Go Live and pick the canvas in the **Canvas** choice.
+
+You should see: the copy has every scene, scaled to the new size; tabs say what they feed
+(e.g. "Stream · Record") and turn red while live; the copied scene fits the vertical canvas; and
+the stream comes out at the chosen canvas size, with the "Going live" message naming it.
 
 **2.6 Setups** (the pill in the top bar)
 1. **New setup…** (runs the first-run setup again; try cancelling it too), **Rename…**,
