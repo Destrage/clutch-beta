@@ -168,6 +168,48 @@ You should see: the copy has every scene, scaled to the new size; tabs say what 
 (e.g. "Stream · Record") and turn red while live; the copied scene fits the vertical canvas; and
 the stream comes out at the chosen canvas size, with the "Going live" message naming it.
 
+**2.5c Canvas settings and backgrounds**
+1. On a vertical canvas, open **Canvas settings…** from the tab's arrow. Change it to 60 fps,
+   then to 2K (1440 × 2560) with **Scale items to the new size** on, and apply. Press Ctrl+Z.
+2. Set the **Background** to a gradient.
+3. Start a recording on that canvas and open Canvas settings again.
+
+You should see: items keep their place at the new size; one Ctrl+Z puts everything back; the
+gradient shows wherever nothing covers the canvas; while recording, size and frame rate are
+locked with a hint and the name and background still change.
+
+**2.5d Filling the space around a game**
+1. Put a Game capture (or a webcam) on a vertical canvas, fitted (**Fit**, Ctrl+F).
+2. In its **Layout** tab, set **Fill empty space** to **Frosted**, then **Color**, then
+   **Gradient**, then **None**.
+
+You should see: the game stays in the middle; Frosted shows a blurred copy of it above and below
+that moves with it; Color and Gradient show what you picked; None shows the canvas background.
+Frame rate and render time in the status bar stay about the same with Frosted on.
+
+**2.5e Colour picker and eyedropper**
+1. Click a colour swatch (a Color source, text colour, a filter colour) to open the picker. Drag
+   in the ring and the square, change opacity, type a hex value.
+2. Set a Color source's **Style** to Linear, then Radial gradient. Add and remove colours, and
+   change the angle, centre and size.
+3. Click the eyedropper, then click a colour in another app (a browser, Discord), on another
+   monitor if you have one, and in the Preview. Try again and press Esc.
+
+You should see: the change live while dragging and one Ctrl+Z for the whole pick; the picked
+colour matching what was under the pointer, without the click doing anything in that app; the
+last colours you picked under **Recent**; Esc puts the colour back. On Linux the eyedropper
+picks from the Preview.
+
+**2.5f Scenes on several canvases**
+1. Duplicate your main canvas (2.5b) so both have the same scene names. Switch scenes on one.
+2. Turn off **Switch scenes with other canvases** in one canvas's menu and switch again.
+3. Put an Application audio source (e.g. Discord) only in one scene, and keep the two canvases
+   on different scenes (with step 2's switch off).
+
+You should see: in step 1 both canvases change scene together, with the same transition; in step
+2 only the canvas you switched changes; in step 3 the mixer lists Discord only while you're on the
+canvas whose scene has it, and only that canvas's recording or stream carries it.
+
 **2.6 Setups** (the pill in the top bar)
 1. **New setup…** (runs the first-run setup again; try cancelling it too), **Rename…**,
    **Duplicate**, **Delete…**.
@@ -216,6 +258,19 @@ crackling over a long session. At 50% some of the original sound comes back.
 3. Record 30 seconds and listen back.
 
 You should see (and hear): every sound exactly once in the recording, no echo or doubling.
+
+**3.6 Sound heard twice**
+1. Have a Game capture with **Capture audio** on, Desktop audio on, and an Application audio
+   source for Discord.
+2. Hover the dot on Discord's or Desktop audio's knob.
+
+You should see: a warning that Desktop audio also carries Discord, saying what to change.
+
+**3.7 Removing a sound**
+1. Right-click the Desktop audio knob and choose **Remove** (or use the bin on its mixer row).
+2. Press Ctrl+Z. Remove it again, then add it back with **+** (Add audio source) in the mixer.
+
+You should see: the knob goes away and comes back with undo, and Desktop audio can be added again.
 
 ---
 
@@ -400,6 +455,21 @@ source's sound settings from its name, and go **Back to the live controls**.
    file), and Custom shader. Change direction, color and duration.
 
 You should see: smooth transitions; sound from both scenes blends during the switch.
+
+**8.2a Studio mode in the Live deck**
+1. While live, click **Studio mode** in the Live deck's header.
+2. Pick a scene with its button (or F1–F9), then click **Transition**; pick another and **Cut**.
+3. With two canvases live (for example 1080p to Twitch and 1440p to YouTube), use the canvas
+   buttons in the header to switch which one the deck shows, and send a scene live.
+
+You should see: Preview and Live side by side; scene buttons change only the Preview until you
+send it; every canvas that switches together changes at the same moment, on every stream.
+
+**8.2c A canvas per destination**
+With two canvases and two or more destinations, open **Go live** and set a different canvas for
+one destination. Go live, then open Go live again next time.
+
+You should see: each stream at its own canvas size, and the same choices the next time.
 
 **8.2b Stream key from your account**
 In Settings → Stream, on a connected destination, click **Get stream key** (YouTube, Twitch, Kick).
