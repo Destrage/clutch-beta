@@ -541,6 +541,30 @@ the top bar.
 
 You should see: total viewers, and a per-platform breakdown.
 
+**8.5 Share your stream**
+1. Fill in **Channel** on your Twitch and Kick destinations (Settings → Stream).
+2. Go live to two platforms, then click **Share** in the Live deck.
+3. Copy each link and open it in a browser. Click **Copy message** and paste it somewhere.
+4. Try **Post on** X, Bluesky, Reddit and WhatsApp (you don't have to send anything).
+5. Change the message in Settings → Stream → **Sharing**, using `{title}`, `{category}` and
+   `{twitch}`, and open Share again.
+
+You should see: one working link per platform (on YouTube, the broadcast's watch page), the
+message with your title and links, each site opening with it filled in, and your own message
+next time. Before going live, Share says it only works while live.
+
+**8.5b Discord announcements**
+1. In Discord, make a webhook for a test channel (Server Settings → Integrations → Webhooks →
+   New Webhook → Copy Webhook URL).
+2. Paste it in Settings → Stream → **Sharing**, name it and click **Add**, then **Send test**.
+3. Leave **Post when I go live** on and go live. End the stream and go live again within a few
+   minutes.
+4. Try a wrong address, and delete the webhook in Discord, then press Send test.
+
+You should see: the test post in the channel; one post when the stream goes live (on YouTube,
+once the broadcast has started), and none for the quick restart; a clear message for the wrong
+address and for the deleted webhook. With **@everyone** on, the post pings the channel.
+
 ---
 
 ## 9. Automation
