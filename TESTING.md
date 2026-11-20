@@ -210,6 +210,27 @@ You should see: in step 1 both canvases change scene together, with the same tra
 2 only the canvas you switched changes; in step 3 the mixer lists Discord only while you're on the
 canvas whose scene has it, and only that canvas's recording or stream carries it.
 
+**2.5g Masks and edges**
+1. Select your webcam (or any source), open the **Look** tab and click **Circle**, then
+   **Rounded** and drag its corner radius.
+2. **Edit mask on the preview**: draw a rectangle and a freehand shape, set one to **Cut**, move
+   a handle, then **Done editing**. Try **Invert**.
+3. Add **Thin border**, then **Neon glow** and **Soft shadow**; change their colours and sizes.
+4. Record a few seconds, and stream if you can.
+
+You should see: everything outside the shape see-through, soft edges where you add feather, and
+the border, glow and shadow following the shape, the same in the preview, the recording and the
+stream, with no extra dropped frames.
+
+**2.5h Show and hide animations**
+1. On a source's **Look** tab, open **Transitions** and set **Show** to **Pop** and **Hide** to
+   **Slide**.
+2. Hide and show it with its eye button, then with a hotkey (Automation, a **Show/hide** step).
+3. Hide it and show it again quickly, before the animation ends.
+
+You should see: it pops in and slides out; changing your mind halfway turns it around smoothly
+instead of jumping.
+
 **2.6 Setups** (the pill in the top bar)
 1. **New setup…** (runs the first-run setup again; try cancelling it too), **Rename…**,
    **Duplicate**, **Delete…**.
@@ -305,6 +326,15 @@ delete a recording.
 You should see: no lost frames in the recording, a smooth preview while Clutch is in front, and
 Clutch's processor and graphics use in Task Manager at or below what the last version used.
 
+**4.6 A track for each source**
+1. Check that Settings → Recording → **Separate track for each source** is on.
+2. Record a game for a minute with your mic and Discord on, staying quiet on one of them.
+3. Open the file in an editor (or a player that lists audio tracks).
+
+You should see: the mixed track first, then one track per sound named after it (the game, your
+mic, Discord); a sound that stayed silent the whole time has no track; no dropped frames and no
+gaps in the sound.
+
 ---
 
 ## 5. Clips
@@ -363,6 +393,13 @@ moment; while trimming, the player loops the part you keep.
 In a recording with ticks (5.3, 5.3b or 5.3c), click a tick, then **Save as new clip**.
 
 You should see: the trim set around that moment, and a new clip of it in the Clips view.
+
+**5.4d Hearing one source**
+1. Play a clip or recording made with a track for each source (4.6).
+2. Under **Hear**, turn off **Full mix** and pick only the game, then the game and your mic.
+3. Trim the clip with **Save as new clip** and play the new one.
+
+You should see: only the sounds you picked; the new clip keeps every track.
 
 **5.5 Storage limit**
 Set a low storage limit (e.g. 1 GB) and keep clipping.
@@ -455,6 +492,19 @@ source's sound settings from its name, and go **Back to the live controls**.
    file), and Custom shader. Change direction, color and duration.
 
 You should see: smooth transitions; sound from both scenes blends during the switch.
+
+**8.2e Moving items between scenes**
+1. Put your webcam in two scenes at different places and sizes, with a **Rounded** mask and a
+   border in one and a **Circle** mask in the other (2.5g).
+2. In the transition settings, turn on **Move matching items**, then switch between the two
+   scenes with Fade and with Slide, while streaming and recording if you can.
+3. Try **Spring**, **Linear** and **Curved path**.
+4. Give an overlay that's in only one scene a **Hide** animation (2.5h) and switch away from it.
+
+You should see: one webcam gliding to its new place (not two fading), its shape changing smoothly
+from rounded to round with the border following the edge, the card under the scenes saying
+**Items move**, and the overlay playing its animation while the rest of the scene fades; the same
+in the recording and the stream.
 
 **8.2a Studio mode in the Live deck**
 1. While live, click **Studio mode** in the Live deck's header.
