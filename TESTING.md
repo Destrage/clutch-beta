@@ -477,6 +477,22 @@ Close and reopen Clutch.
 
 You should see: you don't have to paste your key again.
 
+**7.6 Title and category for each setup**
+Connect Twitch, Kick or YouTube in Settings → Stream, and have two setups (one per game).
+1. In the first setup, click **Go Live**, enter a title and category (and a YouTube description),
+   and go live for a minute, then stop.
+2. Switch to the second setup. Open the **Destinations** button next to Go Live, click **Stream
+   details**, enter other details and click **Save**.
+3. Click **Go Live** in the second setup, check the details, then **Cancel**.
+4. Switch back to the first setup and click **Go Live** again.
+5. Turn off **Ask before going live** and go live with a hotkey in each setup.
+6. Rename a setup and open Stream details again.
+
+You should see: Save closes the window without changing anything on the platforms; each setup
+shows its own details every time, even when your channel still shows the other game; YouTube
+Studio's waiting broadcast takes the setup's title and description; a hotkey go-live uses the
+setup's details; a renamed setup keeps them.
+
 ---
 
 ## 8. While you're live
@@ -592,15 +608,16 @@ the top bar.
 You should see: total viewers, and a per-platform breakdown.
 
 **8.5 Share your stream**
-1. Fill in **Channel** on your Twitch and Kick destinations (Settings → Stream).
+1. Fill in **Channel** on your Twitch and Kick destinations (Settings → Stream). If you can, use a
+   Kick channel whose name has an underscore (`Some_Name`).
 2. Go live to two platforms, then click **Share** in the Live deck.
 3. Copy each link and open it in a browser. Click **Copy message** and paste it somewhere.
 4. Try **Post on** X, Bluesky, Reddit and WhatsApp (you don't have to send anything).
 5. Change the message in Settings → Stream → **Sharing**, using `{title}`, `{category}` and
    `{twitch}`, and open Share again.
 
-You should see: one working link per platform (on YouTube, the broadcast's watch page), the
-message with your title and links, each site opening with it filled in, and your own message
+You should see: one working link per platform (on YouTube, the broadcast's watch page; on Kick,
+a hyphen where the name has an underscore, `kick.com/some-name`), the message with your title and links, each site opening with it filled in, and your own message
 next time. Before going live, Share says it only works while live.
 
 **8.5b Discord announcements**
