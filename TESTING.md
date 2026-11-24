@@ -46,7 +46,8 @@ You should see: Clutch opens. If something is missing (PipeWire, a portal, a key
 should tell you in plain words instead of failing silently.
 
 **1.3 First-run setup**
-1. Pick a purpose: streaming games, talking to camera, recording videos, or vertical video.
+1. Pick a purpose: basic setup, streaming games, talking to camera, recording videos, or
+   vertical video.
 2. Read the list of what Clutch found (screen, webcam, mic, encoder).
 3. Try once with **Choose the resolution myself** too (you can make a new setup later, see 2.6).
 
@@ -63,6 +64,16 @@ You should see: the webcam stays unticked when you switch purpose, and Talking t
 uses your screen. The new setup has exactly what was ticked: with the defaults, a chat overlay
 in the lower left, an Alerts source, and Starting soon and Be right back scenes with large text.
 Recording and Vertical video start with chat, alerts and break scenes unticked.
+
+**1.3c Basic setup**
+1. Make a new setup (**New setup…**, see 2.6) and keep **Basic setup**, which is selected when
+   the window opens.
+2. Click **Get started** without changing anything.
+3. Make another one with Basic setup and tick the webcam.
+
+You should see: one scene named "Main" at 1080p 30 fps with your screen, your mic with noise
+suppression and desktop audio, and nothing else. With the webcam ticked, it sits in a corner over
+the screen.
 
 **1.4 Upgrade**
 When a new beta comes out, install it over the old one.
@@ -81,6 +92,20 @@ You should see: your scenes, settings and stream keys are all still there.
 You should see: a recommendation that makes sense for your PC, a change list that only lists
 real changes, and little to no FPS loss in Gaming or Balanced. If your game stutters while
 recording, a message should offer **Use a lighter profile**.
+
+**1.5b Upload speed and stream bitrate**
+1. Add a platform (Twitch, YouTube, Kick or Facebook) if you have none yet, then open
+   Settings → **Performance** and click **Optimize for this PC**.
+2. Watch **Your connection** count up to 100%, then read the change list.
+3. Click **Test again** a few times, at different times of day.
+4. If you can, try a slow connection (a phone hotspot) and Optimize again.
+5. Turn your Wi-Fi off, click **Test again**, and turn it back on.
+
+You should see: an upload speed close to what a speed test website shows. Each bitrate change says
+"limited by your upload" or "the platform's maximum", and Twitch never goes above 6000 kbps or Kick
+above 8000. On a slow connection, a yellow note suggests 720p or 30 fps. With Wi-Fi off, a clear
+"Couldn't test your upload" message, and nothing else breaks. Tell us your measured speed, your
+real upload speed and the bitrates Clutch picked.
 
 **1.6 Updates** (from 0.3.5 beta 4 on)
 1. Open Settings → **Updates** and click **Check now**.
@@ -104,6 +129,9 @@ You should see: the preview switches instantly; undo brings back a deleted scene
 **2.2 Add each kind of source** (Add source, or Ctrl+N), one at a time:
 - **Display capture**: your whole screen. Try the cursor toggle and, with two monitors, the
   monitor picker.
+  If your monitor supports HDR, turn on Windows HDR (Settings → Display → Use HDR) and compare
+  the preview with your screen, then do the same with an HDR game and an Auto HDR game in Game
+  capture. Also try the **HDR screens** option and switching HDR off while capturing.
 - **Window capture**: one app's window. Close and reopen that app: Clutch should pick it up again
   by itself.
 - **Game capture** (Windows): a game, ideally in borderless fullscreen.
@@ -457,6 +485,9 @@ Trim segments, reorder them, relink a missing file, and export again.
 You should see: the stream on the platform in good quality; no "dropped frames" or network
 alerts on a good connection.
 
+The first time, the Go Live box also says "Checking your upload speed…" under the key for a few
+seconds, then shows the bitrate it picked for your upload.
+
 **7.2 Several platforms at once**
 1. In the menu next to Go Live, **Add platform**.
 2. Go live on both.
@@ -470,7 +501,8 @@ In **More options**, try a custom server, or your own encoder and bitrate.
 **7.4 Bad network**
 While live, briefly disconnect Wi-Fi/Ethernet (~10 s), then reconnect.
 
-You should see: a clear warning, then Clutch reconnects on its own.
+You should see: a clear warning, then Clutch reconnects on its own. If the network stays too slow,
+the warning offers a lower bitrate ("Use … kbps") for the next time you go live.
 
 **7.5 Stream keys are remembered**
 Close and reopen Clutch.
@@ -690,6 +722,9 @@ These are the bugs that matter most, so please keep an eye out all the time:
   monitor while Clutch is open.
 - **Sleep / lock**: put your PC to sleep with Clutch open, wake it up, keep using Clutch.
 - **Light and dark mode**: switch your system theme; everything should stay readable.
+- **Text size**: Settings → Appearance → **Text size**. Try **Larger** and look at every page and
+  window (deck, mixer, inspector, Settings, Clips, Montage, Automation): no text should be cut off
+  or overlap. Is the grey hint text easy to read now?
 - **Small windows and scaling**: shrink the window, try 125%/150% display scaling.
 - **Keyboard only**: Tab through the app; can you reach everything?
 - **Performance**: does your game run noticeably worse with Clutch open? Tell us your FPS with
